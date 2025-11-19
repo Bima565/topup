@@ -22,21 +22,22 @@
         android:gravity="center_vertical">
 
         <!-- Menu Icon -->
+
+        <!-- Search Bar -->
+
         <ImageView
             android:id="@+id/menu_icon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="27dp"
+            android:layout_height="30dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/ic_menu" />
 
-        <!-- Search Bar -->
         <EditText
             android:id="@+id/search_game"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
             android:background="@drawable/search_background"
-            android:hint="Cari Game"
             android:paddingStart="12dp"
             android:textColor="#999999"
             android:textColorHint="#999999"
@@ -49,8 +50,8 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginStart="8dp"
-            android:src="@drawable/ic_person"
-            android:background="@drawable/circle_background" />
+            android:background="@drawable/circle_background"
+            android:src="@drawable/ic_person" />
 
     </LinearLayout>
 
