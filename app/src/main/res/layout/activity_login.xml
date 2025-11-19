@@ -82,7 +82,9 @@
                     android:background="@drawable/bg_editext_radius"
                     android:hint="topupinaja@mail.com"
                     android:padding="15dp"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    />
 
                 <Button
                     android:id="@+id/btnMasuk"
@@ -118,7 +120,7 @@
 
                     <ImageView
                         android:layout_width="44dp"
-                        android:layout_height="27dp"
+                        android:layout_height="38dp"
                         android:background="@drawable/icon_google">
 
                     </ImageView>
