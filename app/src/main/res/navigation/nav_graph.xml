@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <!-- Home Fragment -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.topupgame.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home_fg" />
+
+    <!-- Transaksi Fragment -->
+    <fragment
+        android:id="@+id/transaksiFragment"
+        android:name="com.example.topupgame.TransaksiFragment"
+        android:label="Transaksi"
+        tools:layout="@layout/fragment_transaksi_fg" />
+
+    <!-- Favorite Fragment -->
+    <fragment
+        android:id="@+id/favoritFragment"
+        android:name="com.example.topupgame.FavoritFragment"
+        android:label="Favorite"
+        tools:layout="@layout/fragment_favorit_fg" />
+
+    <!-- Profile Fragment -->
+    <fragment
+        android:id="@+id/profilFragment"
+        android:name="com.example.topupgame.ProfilFragment"
+        android:label="Profil"
+        tools:layout="@layout/fragment_profil_fg" />
+
+</navigation>

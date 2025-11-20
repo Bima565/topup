@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Warna ketika tombol dipilih -->
+    <item android:color="#800080" android:state_checked="true"/>  <!-- Ungu -->
+
+    <!-- Warna normal -->
+    <item android:color="#000000"/> <!-- Hitam -->
+</selector>
