@@ -28,7 +28,7 @@ object GameProvider {
     )
 
     // Sample products data
-    val productList = listOf(
+    val productGenshin = listOf(
         Product("60 Genesis Crystal", "Rp.11.000", R.drawable.ic_genesis_crystal), // Placeholder image
         Product("Welkin Moon 1X", "Rp.90.000", R.drawable.ic_welkin),   // Placeholder image
         Product("300 Genesis Crystal", "Rp.55.000", R.drawable.ic_genesis_crystal),

@@ -22,7 +22,7 @@
             android:id="@+id/btnBack"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_launcher_foreground" 
+            android:src="@drawable/ic_back"
             app:tint="#000000" /> 
             <!-- Placeholder for back arrow, using launcher foreground temporarily if no arrow exists, 
                  but ideally should be a back arrow drawable. User can replace it. -->

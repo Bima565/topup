@@ -38,7 +38,7 @@ class top_up : AppCompatActivity() {
         
         // Use the static product list from GameProvider
         // In a real app, you might want to filter products based on the game
-        val productAdapter = ProductAdapter(GameProvider.productList)
+        val productAdapter = ProductAdapter(GameProvider.productGenshin)
         rvProducts.adapter = productAdapter
 
         // Back button
