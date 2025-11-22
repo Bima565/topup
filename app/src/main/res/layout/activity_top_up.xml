@@ -24,8 +24,7 @@
             android:layout_height="24dp"
             android:src="@drawable/ic_back"
             app:tint="#000000" /> 
-            <!-- Placeholder for back arrow, using launcher foreground temporarily if no arrow exists, 
-                 but ideally should be a back arrow drawable. User can replace it. -->
+            <!-- Placeholder for back arrow -->
 
         <TextView
             android:layout_width="wrap_content"
@@ -102,16 +101,17 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/ic_store"/> <!-- Assuming ic_keranjang is a shop icon -->
+                    android:src="@drawable/ic_store"/> 
                 
-                <TextView
+                <!-- Store Dropdown -->
+                <Spinner
+                    android:id="@+id/spStoreName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
-                    android:text="DntStore"
-                    android:textStyle="bold"
-                    android:textColor="#000000"/>
+                    android:spinnerMode="dropdown"
+                    android:minHeight="48dp" />
                 
                 <TextView
                     android:layout_width="wrap_content"
@@ -130,7 +130,6 @@
             android:backgroundTint="#FCE4EC" 
             android:textColor="#000000"
             android:textStyle="bold"/>
-            <!-- Pinkish background tint matching the image -->
 
     </LinearLayout>
 

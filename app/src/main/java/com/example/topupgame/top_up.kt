@@ -1,7 +1,9 @@
 package com.example.topupgame
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.ImageView
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -48,7 +50,11 @@ class top_up : AppCompatActivity() {
             finish()
         }
         
-        // Add to cart button (Logic can be added later)
-        // val btnAddToCart: Button = findViewById(R.id.btnAddToCart)
+        // Store Spinner
+        val spStoreName: Spinner = findViewById(R.id.spStoreName)
+        val storeList = listOf("DntStore", "PhoenixGame", "NalShop", "HHStore", "InsiderStore")
+        val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, storeList)
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spStoreName.adapter = spinnerAdapter
     }
 }
