@@ -7,8 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class GameAdapter(private val gameList: List<Game>) :
-    RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
+class GameAdapter(
+    private val gameList: List<Game>,
+    private val onItemClick: ((Game) -> Unit)? = null
+) : RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
 
     class GameViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val gameIcon: ImageView = itemView.findViewById(R.id.ivGameIcon)
@@ -25,6 +27,10 @@ class GameAdapter(private val gameList: List<Game>) :
         val game = gameList[position]
         holder.gameIcon.setImageResource(game.icon)
         holder.gameName.text = game.name
+        
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(game)
+        }
     }
 
     override fun getItemCount() = gameList.size

@@ -7,8 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class VoucherAdapter(private val voucherList: List<Voucher>) :
-    RecyclerView.Adapter<VoucherAdapter.VoucherViewHolder>() {
+class VoucherAdapter(
+    private val voucherList: List<Voucher>,
+    private val onItemClick: ((Voucher) -> Unit)? = null
+) : RecyclerView.Adapter<VoucherAdapter.VoucherViewHolder>() {
 
     class VoucherViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val voucherIcon: ImageView = itemView.findViewById(R.id.ivVoucherIcon)
@@ -25,6 +27,10 @@ class VoucherAdapter(private val voucherList: List<Voucher>) :
         val voucher = voucherList[position]
         holder.voucherIcon.setImageResource(voucher.icon)
         holder.voucherName.text = voucher.name
+
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(voucher)
+        }
     }
 
     override fun getItemCount() = voucherList.size

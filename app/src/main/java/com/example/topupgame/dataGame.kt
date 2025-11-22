@@ -8,6 +8,14 @@ data class Game(
     @DrawableRes val icon: Int // Gunakan @DrawableRes untuk memastikan ID drawable yang valid
 )
 
+// Data class untuk item produk (top up)
+data class Product(
+    val name: String,
+    val price: String,
+    @DrawableRes val image: Int,
+    var isFavorite: Boolean = false
+)
+
 // Object untuk menyediakan daftar game statis
 object GameProvider {
     val gameList = listOf(
@@ -17,5 +25,13 @@ object GameProvider {
         Game("Mobile Legends", R.drawable.ic_game_ml),
         Game("Valorant", R.drawable.ic_game_valorant),
         Game("PUBG Mobile", R.drawable.ic_game_pubg)
+    )
+
+    // Sample products data
+    val productList = listOf(
+        Product("60 Genesis Crystal", "Rp.11.000", R.drawable.ic_game_genshin), // Placeholder image
+        Product("Welkin Moon 1X", "Rp.90.000", R.drawable.ic_game_genshin),   // Placeholder image
+        Product("300 Genesis Crystal", "Rp.55.000", R.drawable.ic_game_genshin),
+        Product("980 Genesis Crystal", "Rp.165.000", R.drawable.ic_game_genshin)
     )
 }

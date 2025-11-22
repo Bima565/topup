@@ -32,7 +32,13 @@ class HomeFragment : Fragment(R.layout.fragment_home_fg) {
         val rvGames: RecyclerView = view.findViewById(R.id.rvGames)
         rvGames.layoutManager = GridLayoutManager(requireContext(), 3)
         val featuredGames = GameProvider.gameList.take(6)
-        val gameAdapter = GameAdapter(featuredGames)
+        val gameAdapter = GameAdapter(featuredGames) { game ->
+            // Navigate to top_up activity
+            val intent = Intent(requireContext(), top_up::class.java)
+            intent.putExtra("GAME_NAME", game.name)
+            intent.putExtra("GAME_ICON", game.icon)
+            startActivity(intent)
+        }
         rvGames.adapter = gameAdapter
 
         val tvSeeAllGame: TextView = view.findViewById(R.id.lihatSemuaGame) // ID diperbaiki di sini
@@ -44,7 +50,13 @@ class HomeFragment : Fragment(R.layout.fragment_home_fg) {
         // Voucher RecyclerView
         val rvVoucher: RecyclerView = view.findViewById(R.id.rvVoucher)
         rvVoucher.layoutManager = GridLayoutManager(requireContext(), 3)
-        val voucherAdapter = VoucherAdapter(VoucherProvider.voucherList)
+        val voucherAdapter = VoucherAdapter(VoucherProvider.voucherList) { voucher ->
+            // Navigate to top_up activity (reused for vouchers too)
+            val intent = Intent(requireContext(), top_up::class.java)
+            intent.putExtra("GAME_NAME", voucher.name)
+            intent.putExtra("GAME_ICON", voucher.icon)
+            startActivity(intent)
+        }
         rvVoucher.adapter = voucherAdapter
 
         val tvSeeAllVoucher: TextView = view.findViewById(R.id.lihatSemuaVoucher)
