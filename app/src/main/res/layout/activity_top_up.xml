@@ -102,7 +102,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/ic_keranjang"/> <!-- Assuming ic_keranjang is a shop icon -->
+                    android:src="@drawable/ic_store"/> <!-- Assuming ic_keranjang is a shop icon -->
                 
                 <TextView
                     android:layout_width="0dp"
