@@ -15,6 +15,7 @@ class ProductAdapter(private val productList: List<Product>) :
         val ivProductImage: ImageView = itemView.findViewById(R.id.ivProductImage)
         val tvProductName: TextView = itemView.findViewById(R.id.tvProductName)
         val tvProductPrice: TextView = itemView.findViewById(R.id.tvProductPrice)
+        val tvStoreName: TextView = itemView.findViewById(R.id.tvStoreName) // Updated ID
         val cardProduct: View = itemView.findViewById(R.id.cardProduct)
     }
 
@@ -29,6 +30,14 @@ class ProductAdapter(private val productList: List<Product>) :
         holder.tvProductName.text = product.name
         holder.tvProductPrice.text = product.price
         holder.ivProductImage.setImageResource(product.image)
+        
+        // Display Store Name if available
+        if (!product.storeName.isNullOrEmpty()) {
+            holder.tvStoreName.text = product.storeName
+            holder.tvStoreName.visibility = View.VISIBLE
+        } else {
+            holder.tvStoreName.visibility = View.GONE
+        }
 
         // Handle favorite state
         updateFavoriteIcon(holder.ivFavorite, product.isFavorite)

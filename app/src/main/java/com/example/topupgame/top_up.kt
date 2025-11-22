@@ -1,6 +1,8 @@
 package com.example.topupgame
 
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.Spinner
@@ -54,10 +56,22 @@ class top_up : AppCompatActivity() {
         }
         
         // Store Spinner
-        val spStoreName: Spinner = findViewById(R.id.spStoreName)
+        val spStoreName: Spinner = findViewById(R.id.spStoreName) // Changed ID here to match XML correctly
         val storeList = listOf("DntStore", "PhoenixGame", "NalShop", "HHStore", "InsiderStore")
         val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, storeList)
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spStoreName.adapter = spinnerAdapter
+
+        spStoreName.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                val selectedStore = storeList[position]
+                // Update the selected store name for all displayed products
+                productList.forEach { it.storeName = selectedStore }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Do nothing
+            }
+        }
     }
 }

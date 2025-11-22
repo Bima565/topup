@@ -37,16 +37,31 @@
             android:layout_width="0dp"
             android:layout_height="30sp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="4dp"
             android:gravity="center"
             android:text="Product Name"
             android:textSize="12sp"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
-            app:layout_constraintBottom_toTopOf="@+id/tvProductPrice"
+            app:layout_constraintBottom_toTopOf="@+id/tvStoreName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivProductImage" />
+
+        <TextView
+            android:id="@+id/tvStoreName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="Store Name"
+            android:textSize="10sp"
+            android:textColor="#808080"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/tvProductPrice"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvProductName" />
 
         <TextView
             android:id="@+id/tvProductPrice"
