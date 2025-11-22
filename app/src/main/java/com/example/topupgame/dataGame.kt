@@ -59,12 +59,12 @@ object GameProvider {
 
     // Sample products data for Mobile Legends
     val productML = listOf(
-        Product("11 Diamonds", "Rp.3.500", R.drawable.ic_game_ml),
-        Product("50 Diamonds", "Rp.15.000", R.drawable.ic_game_ml),
-        Product("Weekly Diamond Pass", "Rp.28.000", R.drawable.ic_game_ml),
-        Product("250 Diamonds", "Rp.80.000", R.drawable.ic_game_ml),
-        Product("500 Diamonds", "Rp.150.000", R.drawable.ic_game_ml),
-        Product("1000 Diamonds", "Rp.290.000", R.drawable.ic_game_ml)
+        Product("11 Diamonds", "Rp.3.500", R.drawable.ic_diamonds),
+        Product("50 Diamonds", "Rp.15.000", R.drawable.ic_diamonds),
+        Product("Weekly Diamond Pass", "Rp.28.000", R.drawable.ic_weekly_dmpass),
+        Product("250 Diamonds", "Rp.80.000", R.drawable.ic_diamonds),
+        Product("500 Diamonds", "Rp.150.000", R.drawable.ic_diamonds),
+        Product("1000 Diamonds", "Rp.290.000", R.drawable.ic_diamonds)
     )
 
     // Sample products data for Valorant
