@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:background="#FFFFFF"
-    android:paddingBottom="0sp"
-    tools:context=".ui.home.HomeFragment">
+    android:paddingBottom="0sp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,13 +42,26 @@
         </LinearLayout>
 
 
-        <!-- Banner Slider (ViewPager2 / ImageView dulu) -->
-        <ImageView
-            android:id="@+id/bannerImage"
+        <!-- ... (kode sebelum banner) ... -->
+
+        <!-- Ganti FrameLayout atau LinearLayout yang mungkin membungkus ViewPager2 dengan ini -->
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="93dp"
-            android:layout_marginBottom="20dp"
-            android:scaleType="centerCrop" />
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/bannerViewPager"
+                android:layout_width="382dp"
+                android:layout_height="261dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- ... (kode setelah banner) ... -->
+
 
         <!-- Title Top Up Game -->
         <LinearLayout
@@ -74,7 +86,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvSeeAllGame"
+                android:id="@+id/lihatSemuaGame"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -86,16 +98,17 @@
         </LinearLayout>
 
         <!-- RecyclerView Game -->
+
+        <!-- Voucher Title -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvGames"
             android:layout_width="match_parent"
-            android:layout_height="243dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:nestedScrollingEnabled="false"
 
             />
 
-        <!-- Voucher Title -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -106,7 +119,7 @@
             <ImageView
                 android:layout_width="30sp"
                 android:layout_height="30sp"
-                android:src="@drawable/ic_voucher"
+                android:src="@drawable/ic_pilih_voucher"
                 android:layout_marginEnd="10sp"
                 />
 
@@ -118,7 +131,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvSeeAllVoucher"
+                android:id="@+id/lihatSemuaVoucher"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"

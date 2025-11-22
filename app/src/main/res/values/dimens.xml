@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Jarak antar halaman di ViewPager2 -->
+    <dimen name="page_margin">10dp</dimen>
+
+    <!-- Jarak "intip" untuk halaman di samping -->
+    <dimen name="peek_offset">32dp</dimen>
+</resources>

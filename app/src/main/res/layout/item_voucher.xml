@@ -10,20 +10,20 @@
     >
 
     <ImageView
-        android:id="@+id/ivGameIcon"
+        android:id="@+id/ivVoucherIcon"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:scaleType="centerCrop"
         tools:src="@drawable/ic_launcher_background" />
 
     <TextView
-        android:id="@+id/tvGameName"
-        android:layout_width="114dp"
-        android:layout_height="33dp"
+        android:id="@+id/tvVoucherName"
+        android:layout_width="119dp"
+        android:layout_height="34dp"
         android:layout_marginTop="4dp"
         android:textAlignment="center"
         android:textSize="14sp"
         android:textStyle="bold"
-        tools:text="Nama Game" />
+        tools:text="Nama Voucher" />
 
 </LinearLayout>
