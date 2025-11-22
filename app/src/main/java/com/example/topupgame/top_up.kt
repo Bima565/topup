@@ -38,8 +38,11 @@ class top_up : AppCompatActivity() {
         val rvProducts: RecyclerView = findViewById(R.id.rvProducts)
         rvProducts.layoutManager = GridLayoutManager(this, 2) // 2 columns grid
         
-        // Load products based on the game name
-        val productList = GameProvider.getProductsForGame(gameName)
+        // Load products based on the game or voucher name
+        var productList = GameProvider.getProductsForGame(gameName)
+        if (productList.isEmpty()) {
+            productList = VoucherProvider.getProductsForVoucher(gameName)
+        }
         
         val productAdapter = ProductAdapter(productList)
         rvProducts.adapter = productAdapter
