@@ -34,11 +34,12 @@ class top_up : AppCompatActivity() {
 
         // Setup RecyclerView
         val rvProducts: RecyclerView = findViewById(R.id.rvProducts)
-        rvProducts.layoutManager = GridLayoutManager(this, 2) // 2 columns grid
+        rvProducts.layoutManager = GridLayoutManager(this, 3) // 2 columns grid
         
-        // Use the static product list from GameProvider
-        // In a real app, you might want to filter products based on the game
-        val productAdapter = ProductAdapter(GameProvider.productGenshin)
+        // Load products based on the game name
+        val productList = GameProvider.getProductsForGame(gameName)
+        
+        val productAdapter = ProductAdapter(productList)
         rvProducts.adapter = productAdapter
 
         // Back button
