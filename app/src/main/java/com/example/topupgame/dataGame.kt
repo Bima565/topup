@@ -40,12 +40,12 @@ object GameProvider {
 
     // Sample products data for Honkai Star Rail
     val productHonkai = listOf(
-        Product("60 Oneiric Shard", "Rp.16.000", R.drawable.ic_game_hsr),
-        Product("Express Supply Pass", "Rp.90.000", R.drawable.ic_game_hsr),
-        Product("300 Oneiric Shard", "Rp.79.000", R.drawable.ic_game_hsr),
-        Product("980 Oneiric Shard", "Rp.249.000", R.drawable.ic_game_hsr),
-        Product("1980 Oneiric Shard", "Rp.479.000", R.drawable.ic_game_hsr),
-        Product("3280 Oneiric Shard", "Rp.799.000", R.drawable.ic_game_hsr)
+        Product("60 Oneiric Shard", "Rp.16.000", R.drawable.ic_stellar_jade),
+        Product("Express Supply Pass", "Rp.90.000", R.drawable.ic_supply_pass),
+        Product("300 Oneiric Shard", "Rp.79.000", R.drawable.ic_stellar_jade),
+        Product("980 Oneiric Shard", "Rp.249.000", R.drawable.ic_stellar_jade),
+        Product("1980 Oneiric Shard", "Rp.479.000", R.drawable.ic_stellar_jade),
+        Product("3280 Oneiric Shard", "Rp.799.000", R.drawable.ic_stellar_jade)
     )
 
     // Sample products data for Zenless Zone Zero
