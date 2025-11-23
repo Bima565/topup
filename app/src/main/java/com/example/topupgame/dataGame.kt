@@ -30,12 +30,12 @@ object GameProvider {
 
     // Sample products data for Genshin Impact
     val productGenshin = listOf(
-        Product("60 Genesis Crystal", "Rp.11.000", R.drawable.ic_game_genshin),
-        Product("Welkin Moon 1X", "Rp.90.000", R.drawable.ic_game_genshin),
-        Product("300 Genesis Crystal", "Rp.55.000", R.drawable.ic_game_genshin),
-        Product("980 Genesis Crystal", "Rp.165.000", R.drawable.ic_game_genshin),
-        Product("1980 Genesis Crystal", "Rp.329.000", R.drawable.ic_game_genshin),
-        Product("3280 Genesis Crystal", "Rp.549.000", R.drawable.ic_game_genshin)
+        Product("60 Genesis Crystal", "Rp.11.000", R.drawable.ic_genesis_crystal),
+        Product("Welkin Moon 1X", "Rp.90.000", R.drawable.ic_welkin),
+        Product("300 Genesis Crystal", "Rp.55.000", R.drawable.ic_genesis_crystal),
+        Product("980 Genesis Crystal", "Rp.165.000", R.drawable.ic_genesis_crystal),
+        Product("1980 Genesis Crystal", "Rp.329.000", R.drawable.ic_genesis_crystal),
+        Product("3280 Genesis Crystal", "Rp.549.000", R.drawable.ic_genesis_crystal)
     )
 
     // Sample products data for Honkai Star Rail
