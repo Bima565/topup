@@ -50,42 +50,42 @@ object GameProvider {
 
     // Sample products data for Zenless Zone Zero
     val productZZZ = listOf(
-        Product("60 Monochrome", "Rp.16.000", R.drawable.ic_game_zzz),
-        Product("Inter-Knot Membership", "Rp.90.000", R.drawable.ic_game_zzz),
-        Product("300 Monochrome", "Rp.79.000", R.drawable.ic_game_zzz),
-        Product("980 Monochrome", "Rp.249.000", R.drawable.ic_game_zzz),
-        Product("1980 Monochrome", "Rp.479.000", R.drawable.ic_game_zzz),
-        Product("3280 Monochrome", "Rp.799.000", R.drawable.ic_game_zzz)
+        Product("60 Monochrome", "Rp.16.000", R.drawable.ic_monochrome),
+        Product("Inter-Knot Membership", "Rp.90.000", R.drawable.ic_interknot_membershipp),
+        Product("300 Monochrome", "Rp.79.000", R.drawable.ic_monochrome),
+        Product("980 Monochrome", "Rp.249.000", R.drawable.ic_monochrome),
+        Product("1980 Monochrome", "Rp.479.000", R.drawable.ic_monochrome),
+        Product("3280 Monochrome", "Rp.799.000", R.drawable.ic_monochrome)
     )
 
     // Sample products data for Mobile Legends
     val productML = listOf(
-        Product("11 Diamonds", "Rp.3.500", R.drawable.ic_game_ml),
-        Product("50 Diamonds", "Rp.15.000", R.drawable.ic_game_ml),
-        Product("Weekly Diamond Pass", "Rp.28.000", R.drawable.ic_game_ml),
-        Product("250 Diamonds", "Rp.80.000", R.drawable.ic_game_ml),
-        Product("500 Diamonds", "Rp.150.000", R.drawable.ic_game_ml),
-        Product("1000 Diamonds", "Rp.290.000", R.drawable.ic_game_ml)
+        Product("11 Diamonds", "Rp.3.500", R.drawable.ic_diamonds),
+        Product("50 Diamonds", "Rp.15.000", R.drawable.ic_diamonds),
+        Product("Weekly Diamond Pass", "Rp.28.000", R.drawable.ic_weekly_dmpass),
+        Product("250 Diamonds", "Rp.80.000", R.drawable.ic_diamonds),
+        Product("500 Diamonds", "Rp.150.000", R.drawable.ic_diamonds),
+        Product("1000 Diamonds", "Rp.290.000", R.drawable.ic_diamonds)
     )
 
     // Sample products data for Valorant
     val productValorant = listOf(
-        Product("125 VP", "Rp.15.000", R.drawable.ic_game_valorant),
-        Product("420 VP", "Rp.50.000", R.drawable.ic_game_valorant),
-        Product("700 VP", "Rp.80.000", R.drawable.ic_game_valorant),
-        Product("1375 VP", "Rp.150.000", R.drawable.ic_game_valorant),
-        Product("2400 VP", "Rp.250.000", R.drawable.ic_game_valorant),
-        Product("4000 VP", "Rp.400.000", R.drawable.ic_game_valorant)
+        Product("125 VP", "Rp.15.000", R.drawable.ic_vp),
+        Product("420 VP", "Rp.50.000", R.drawable.ic_vp),
+        Product("700 VP", "Rp.80.000", R.drawable.ic_vp),
+        Product("1375 VP", "Rp.150.000", R.drawable.ic_vp),
+        Product("2400 VP", "Rp.250.000", R.drawable.ic_vp),
+        Product("4000 VP", "Rp.400.000", R.drawable.ic_vp)
     )
 
     // Sample products data for PUBG Mobile
     val productPUBG = listOf(
-        Product("60 UC", "Rp.14.000", R.drawable.ic_game_pubg),
-        Product("325 UC", "Rp.70.000", R.drawable.ic_game_pubg),
-        Product("660 UC", "Rp.140.000", R.drawable.ic_game_pubg),
-        Product("1800 UC", "Rp.350.000", R.drawable.ic_game_pubg),
-        Product("3850 UC", "Rp.700.000", R.drawable.ic_game_pubg),
-        Product("8100 UC", "Rp.1.400.000", R.drawable.ic_game_pubg)
+        Product("60 UC", "Rp.14.000", R.drawable.ic_ucpubg),
+        Product("325 UC", "Rp.70.000", R.drawable.ic_ucpubg),
+        Product("660 UC", "Rp.140.000", R.drawable.ic_ucpubg),
+        Product("1800 UC", "Rp.350.000", R.drawable.ic_ucpubg),
+        Product("3850 UC", "Rp.700.000", R.drawable.ic_ucpubg),
+        Product("8100 UC", "Rp.1.400.000", R.drawable.ic_ucpubg)
     )
 
     fun getProductsForGame(gameName: String): List<Product> {
