@@ -9,9 +9,10 @@
     app:cardElevation="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/productContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFF5EE"> <!-- Beige/Pinkish background -->
+        android:background="@drawable/item_product_background_selector">
 
         <ImageView
             android:id="@+id/ivFavorite"

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 
 class ProductAdapter(
@@ -25,7 +26,7 @@ class ProductAdapter(
         val tvProductName: TextView = itemView.findViewById(R.id.tvProductName)
         val tvProductPrice: TextView = itemView.findViewById(R.id.tvProductPrice)
         val tvStoreName: TextView = itemView.findViewById(R.id.tvStoreName)
-        val cardProduct: View = itemView.findViewById(R.id.cardProduct)
+        val productContainer: ConstraintLayout = itemView.findViewById(R.id.productContainer)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -47,9 +48,9 @@ class ProductAdapter(
             holder.tvStoreName.visibility = View.GONE
         }
 
-        holder.itemView.setBackgroundColor(if (selectedPosition == position) Color.LTGRAY else Color.WHITE)
+        holder.productContainer.isSelected = selectedPosition == position
 
-        holder.cardProduct.setOnClickListener {
+        holder.productContainer.setOnClickListener {
             val previousSelectedPosition = selectedPosition
             selectedPosition = holder.adapterPosition
             notifyItemChanged(previousSelectedPosition)
@@ -66,7 +67,7 @@ class ProductAdapter(
 
     private fun updateFavoriteIcon(imageView: ImageView, isFavorite: Boolean) {
         if (isFavorite) {
-            imageView.setImageResource(R.drawable.ic_favorite) 
+            imageView.setImageResource(R.drawable.ic_favorite)
             imageView.setColorFilter(Color.RED)
         } else {
             imageView.setImageResource(R.drawable.ic_favorite)
