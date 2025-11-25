@@ -3,6 +3,7 @@ package com.example.topupgame
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -10,11 +11,14 @@ import androidx.recyclerview.widget.RecyclerView
 class KeranjangAdapter(private val cartItems: List<Product>) :
     RecyclerView.Adapter<KeranjangAdapter.KeranjangViewHolder>() {
 
+    private val selectedItems = mutableListOf<Product>()
+
     class KeranjangViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val ivProductImage: ImageView = itemView.findViewById(R.id.ivProductImage)
         val tvProductName: TextView = itemView.findViewById(R.id.tvProductName)
         val tvProductPrice: TextView = itemView.findViewById(R.id.tvProductPrice)
         val tvStoreName: TextView = itemView.findViewById(R.id.tvStoreName)
+        val cbSelect: CheckBox = itemView.findViewById(R.id.cbSelect)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KeranjangViewHolder {
@@ -29,6 +33,20 @@ class KeranjangAdapter(private val cartItems: List<Product>) :
         holder.tvProductName.text = product.name
         holder.tvProductPrice.text = product.price
         holder.tvStoreName.text = product.storeName
+
+        holder.cbSelect.isChecked = selectedItems.contains(product)
+
+        holder.cbSelect.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                selectedItems.add(product)
+            } else {
+                selectedItems.remove(product)
+            }
+        }
+    }
+
+    fun getSelectedItems(): List<Product> {
+        return selectedItems
     }
 
     override fun getItemCount() = cartItems.size
