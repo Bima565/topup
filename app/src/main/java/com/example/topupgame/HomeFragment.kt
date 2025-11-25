@@ -69,7 +69,8 @@ class HomeFragment : Fragment(R.layout.fragment_home_fg) {
         val bannerImages = listOf(
             R.drawable.banner_1,
             R.drawable.banner_2,
-            R.drawable.banner_3
+            R.drawable.banner_3,
+            R.drawable.banner_4,
         )
 
         val viewPager: ViewPager2 = view.findViewById(R.id.bannerViewPager)
