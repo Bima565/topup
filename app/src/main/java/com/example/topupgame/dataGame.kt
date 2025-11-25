@@ -1,21 +1,25 @@
 package com.example.topupgame
 
+import android.os.Parcelable
 import androidx.annotation.DrawableRes
+import kotlinx.parcelize.Parcelize
 
 // Data class untuk merepresentasikan satu item game
+@Parcelize
 data class Game(
     val name: String,
     @DrawableRes val icon: Int // Gunakan @DrawableRes untuk memastikan ID drawable yang valid
-)
+) : Parcelable
 
 // Data class untuk item produk (top up)
+@Parcelize
 data class Product(
     val name: String,
     val price: String,
     @DrawableRes val image: Int,
     var isFavorite: Boolean = false,
     var storeName: String? = null
-)
+) : Parcelable
 
 // Object untuk menyediakan daftar game statis
 object GameProvider {

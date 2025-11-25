@@ -12,9 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TopupGame">
         <activity
-            android:name=".top_up"
+            android:name=".Keranjang"
             android:exported="false" />
-        <!-- Activity yang menjadi titik masuk aplikasi (LAUNCHER) -->
+        <activity
+            android:name=".MetodePembayaran"
+            android:exported="false" />
+        <activity
+            android:name=".top_up"
+            android:exported="false" /> <!-- Activity yang menjadi titik masuk aplikasi (LAUNCHER) -->
         <activity
             android:name=".Login"
             android:exported="true">

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
@@ -44,6 +45,12 @@ class HomeFragment : Fragment(R.layout.fragment_home_fg) {
         val tvSeeAllGame: TextView = view.findViewById(R.id.lihatSemuaGame) // ID diperbaiki di sini
         tvSeeAllGame.setOnClickListener {
             val intent = Intent(requireActivity(), pilih_game::class.java)
+            startActivity(intent)
+        }
+
+        val tvKeranjang: ImageView = view.findViewById(R.id.tvKeranjang)
+        tvKeranjang.setOnClickListener {
+            val intent = Intent(requireActivity(), Keranjang::class.java)
             startActivity(intent)
         }
 

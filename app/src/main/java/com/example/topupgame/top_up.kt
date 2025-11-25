@@ -1,12 +1,15 @@
 package com.example.topupgame
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -14,7 +17,10 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class top_up : AppCompatActivity() {
+class top_up : AppCompatActivity(), ProductAdapter.OnItemClickListener {
+
+    private var selectedProduct: Product? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,38 +31,43 @@ class top_up : AppCompatActivity() {
             insets
         }
 
-        // Retrieve data from Intent
         val gameName = intent.getStringExtra("GAME_NAME") ?: "Unknown Game"
         val gameIcon = intent.getIntExtra("GAME_ICON", R.drawable.ic_game_genshin)
 
-        // Update UI with game details
         val tvGameName: TextView = findViewById(R.id.tvGameNameDetail)
         val ivGameIcon: ImageView = findViewById(R.id.ivGameIconDetail)
         
         tvGameName.text = gameName
         ivGameIcon.setImageResource(gameIcon)
 
-        // Setup RecyclerView
         val rvProducts: RecyclerView = findViewById(R.id.rvProducts)
-        rvProducts.layoutManager = GridLayoutManager(this, 2) // 2 columns grid
+        rvProducts.layoutManager = GridLayoutManager(this, 2)
         
-        // Load products based on the game or voucher name
         var productList = GameProvider.getProductsForGame(gameName)
         if (productList.isEmpty()) {
             productList = VoucherProvider.getProductsForVoucher(gameName)
         }
         
-        val productAdapter = ProductAdapter(productList)
+        val productAdapter = ProductAdapter(productList, this)
         rvProducts.adapter = productAdapter
 
-        // Back button
         val btnBack: ImageView = findViewById(R.id.btnBack)
         btnBack.setOnClickListener {
             finish()
         }
         
-        // Store Spinner
-        val spStoreName: Spinner = findViewById(R.id.spStoreName) // Changed ID here to match XML correctly
+        val btnAddToCart: Button = findViewById(R.id.btnAddToCart)
+        btnAddToCart.setOnClickListener {
+            if (selectedProduct != null) {
+                val intent = Intent(this, Keranjang::class.java)
+                intent.putExtra("SELECTED_PRODUCT", selectedProduct)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Pilih produk terlebih dahulu", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val spStoreName: Spinner = findViewById(R.id.spStoreName)
         val storeList = listOf("DntStore", "PhoenixGame", "NalShop", "HHStore", "InsiderStore")
         val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, storeList)
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -65,13 +76,15 @@ class top_up : AppCompatActivity() {
         spStoreName.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 val selectedStore = storeList[position]
-                // Update the selected store name for all displayed products
                 productList.forEach { it.storeName = selectedStore }
+                productAdapter.notifyDataSetChanged() 
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                // Do nothing
-            }
+            override fun onNothingSelected(parent: AdapterView<*>) {}
         }
+    }
+
+    override fun onItemClick(product: Product) {
+        selectedProduct = product
     }
 }
