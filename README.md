@@ -1,7 +1,6 @@
 <img width="610" height="409" alt="image" src="https://github.com/user-attachments/assets/c778baa9-1fdf-4a08-bf72-82ee18a1e86b" />
 
-# Table of Contents
-Kelompok 10
-2. Bima.
+# Kelompok 10
+1. Bima.
 2. Candra.
 3. Fachrizal.
