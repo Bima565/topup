@@ -1,5 +1,6 @@
 package com.example.topupgame
 
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
@@ -27,6 +28,7 @@ class MetodePembayaran : AppCompatActivity() {
 
     private var totalPesanan = 0.0
     private val biayaAdmin = 62.0
+    private var selectedItems = listOf<Product>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,8 +46,14 @@ class MetodePembayaran : AppCompatActivity() {
         btnBayar = findViewById(R.id.btnBayar)
         btnBack = findViewById(R.id.btnBack)
 
+        selectedItems = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getParcelableArrayListExtra("SELECTED_ITEMS", Product::class.java) ?: emptyList()
+        } else {
+            intent.getParcelableArrayListExtra<Product>("SELECTED_ITEMS") ?: emptyList()
+        }
+
         rvSelectedItems.layoutManager = LinearLayoutManager(this)
-        adapter = MetodePembayaranAdapter(Keranjang.cartItems)
+        adapter = MetodePembayaranAdapter(selectedItems)
         rvSelectedItems.adapter = adapter
 
         calculateTotal()
@@ -86,7 +94,7 @@ class MetodePembayaran : AppCompatActivity() {
     }
 
     private fun calculateTotal() {
-        totalPesanan = Keranjang.cartItems.sumOf { it.price.replace("Rp.", "").replace(".", "").toDouble() }
+        totalPesanan = selectedItems.sumOf { it.price.replace("Rp.", "").replace(".", "").toDouble() }
     }
 
     private fun updateTotalViews() {

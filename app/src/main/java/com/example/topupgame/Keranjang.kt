@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.util.ArrayList
 
 class Keranjang : AppCompatActivity() {
 
@@ -44,8 +45,10 @@ class Keranjang : AppCompatActivity() {
         }
 
         if (selectedProduct != null) {
-            cartItems.add(selectedProduct)
-            adapter.notifyItemInserted(cartItems.size - 1)
+             if (!cartItems.any { it.name == selectedProduct.name }) {
+                cartItems.add(selectedProduct)
+                adapter.notifyItemInserted(cartItems.size - 1)
+            }
         }
 
         val btnBack: ImageView = findViewById(R.id.btnBack)
@@ -55,8 +58,14 @@ class Keranjang : AppCompatActivity() {
 
         val btnCheckout: Button = findViewById(R.id.btnCheckout)
         btnCheckout.setOnClickListener {
-            val intent = Intent(this, MetodePembayaran::class.java)
-            startActivity(intent)
+            val selectedItems = adapter.getSelectedItems()
+            if (selectedItems.isEmpty()) {
+                Toast.makeText(this, "Pilih setidaknya satu item untuk checkout.", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, MetodePembayaran::class.java)
+                intent.putParcelableArrayListExtra("SELECTED_ITEMS", ArrayList(selectedItems))
+                startActivity(intent)
+            }
         }
     }
 }
