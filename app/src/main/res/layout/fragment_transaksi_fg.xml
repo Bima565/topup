@@ -1,16 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="TransaksiFragment">
+    android:background="#FFFFFF"
+    tools:context=".TransaksiFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/transaksi"
-        android:gravity="center"
-        />
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Menunggu Konfirmasi"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <LinearLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+        <Button
+            android:id="@+id/btnSemua"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_semua_transaksi"
+            android:drawableTint="@color/nav_icon_tint"
+            android:text="Semua Transaksi"
+            android:textAllCaps="false"
+            android:textColor="@color/nav_icon_tint" />
+
+        <Button
+            android:id="@+id/btnMenunggu"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_menunggu_konfirmasi"
+            android:drawableTint="@color/nav_icon_tint"
+            android:text="Menunggu Konfirmasi"
+            android:textAllCaps="false"
+            android:textColor="@color/nav_icon_tint" />
+
+        <Button
+            android:id="@+id/btnSelesai"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_selesai"
+            android:drawableTint="@color/nav_icon_tint"
+            android:text="Selesai"
+            android:textAllCaps="false"
+            android:textColor="@color/nav_icon_tint" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTransaksi"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
