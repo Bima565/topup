@@ -1,5 +1,6 @@
 package com.example.topupgame
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.widget.Button
@@ -82,7 +83,24 @@ class MetodePembayaran : AppCompatActivity() {
 
         btnBayar.setOnClickListener {
             if (tvPaymentMethod.text != "-") {
+                // 1. Pindahkan item ke riwayat transaksi
+                selectedItems.forEach { product ->
+                    val transaksi = Transaksi(product, "Menunggu Konfirmasi")
+                    TransaksiRepository.riwayatTransaksi.add(transaksi)
+                }
+
+                // 2. Hapus item dari keranjang
+                Keranjang.cartItems.removeAll(selectedItems)
+
                 Toast.makeText(this, "Pembayaran berhasil!", Toast.LENGTH_SHORT).show()
+
+                // 3. Arahkan ke MainActivity dan minta buka TransaksiFragment
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("NAVIGATE_TO", "TRANSAKSI_FRAGMENT")
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+                finish()
+
             } else {
                 Toast.makeText(this, "Pilih metode pembayaran terlebih dahulu", Toast.LENGTH_SHORT).show()
             }
