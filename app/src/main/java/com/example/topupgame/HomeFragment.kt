@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeFragment : Fragment(R.layout.fragment_home_fg) {
 
@@ -103,6 +104,14 @@ class HomeFragment : Fragment(R.layout.fragment_home_fg) {
         viewPager.setPageTransformer(pageTransformer)
 
         // --- AKHIR KODE TAMBAHAN ---
+    }
+    
+    override fun onResume() {
+        super.onResume()
+        // Ensure BottomNav in MainActivity is enabled/visible if needed
+        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNav)
+        bottomNav?.isEnabled = true
+        // Also ensure no overlay is blocking clicks if any
     }
 
 }

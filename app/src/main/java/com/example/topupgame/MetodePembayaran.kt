@@ -94,9 +94,9 @@ class MetodePembayaran : AppCompatActivity() {
 
                 Toast.makeText(this, "Pembayaran berhasil!", Toast.LENGTH_SHORT).show()
 
-                // 3. Arahkan ke MainActivity dan minta buka TransaksiFragment
+                // 3. Arahkan ke MainActivity dan minta buka HomeFragment
                 val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("NAVIGATE_TO", "TRANSAKSI_FRAGMENT")
+                intent.putExtra("NAVIGATE_TO", "HOME_FRAGMENT")
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)
                 finish()
