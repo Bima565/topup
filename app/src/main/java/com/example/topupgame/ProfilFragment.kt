@@ -1,5 +1,6 @@
 package com.example.topupgame
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -10,6 +11,14 @@ class ProfilFragment : Fragment(R.layout.fragment_profil_fg) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Retrieve username from SharedPreferences
+        val sharedPref = requireActivity().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+        val username = sharedPref.getString("USERNAME", "Bima1234") // Default value if not found
+
+        // Display username
+        val tvUsername: TextView = view.findViewById(R.id.tvUsername)
+        tvUsername.text = username
 
         // Rekomendasi Produk Click (Welkin Moon)
         val cardRekomendasi: View = view.findViewById(R.id.cardRekomendasi)
