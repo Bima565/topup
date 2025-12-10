@@ -50,7 +50,7 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/ic_menunggu_konfirmasi"
             android:drawableTint="@color/nav_icon_tint"
-            android:text="Menunggu Konfirmasi"
+            android:text="Proses"
             android:textAllCaps="false"
             android:textColor="@color/nav_icon_tint" />
 

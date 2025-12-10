@@ -101,6 +101,7 @@
         <!-- RecyclerView Game -->
 
         <!-- Voucher Title -->
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvGames"
             android:layout_width="match_parent"
